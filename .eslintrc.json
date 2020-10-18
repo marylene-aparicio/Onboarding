@@ -15,9 +15,22 @@
         "ecmaVersion": 12,
         "sourceType": "module"
     },
+    "settings": {
+        "import/resolver": {
+            "meteor": {
+                "extensions": [
+                ".js",
+                ".jsx"
+                ]
+            }
+        }
+    },
     "plugins": [
         "react"
     ],
     "rules": {
+        "react/prop-types": 0,
+        "import/no-absolute-path": 0,
+        "react/jsx-props-no-spreading": 0
     }
 }

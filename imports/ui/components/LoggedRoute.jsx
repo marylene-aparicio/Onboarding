@@ -4,17 +4,17 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 const LoggedRoute = (props) => {
-    const connected = useTracker(() => Meteor.userId(), []);
+  const connected = useTracker(() => Meteor.userId(), []);
 
-    if(!connected) {
-        return (
-            <Redirect to="/" />
-        );
-    }
-
+  if (!connected) {
     return (
-        <Route {...props} />
+      <Redirect to="/" />
     );
+  }
+
+  return (
+    <Route {...props} />
+  );
 };
 
 export default LoggedRoute;
