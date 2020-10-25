@@ -7,8 +7,6 @@ const Events = () => (
     <h2>Events</h2>
     <a href="Signin">Signin</a>
     <br />
-    <a href="Signup">Signup</a>
-    <br />
     <a href="Listings">Listings</a>
     <br />
     <a href="Groups">Groups</a>

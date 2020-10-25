@@ -1,16 +1,17 @@
+import { Accounts } from 'meteor/accounts-base';
 import React, { useState, useCallback } from 'react';
-import { Meteor } from 'meteor/meteor';
 import { toast } from 'react-toastify';
 
-import Flex from '/imports/ui/components/Flex';
-import Input from '/imports/ui/components/Input';
 import Title from '/imports/ui/components/Title';
 import Button from '/imports/ui/components/Button';
+import Flex from '/imports/ui/components/Flex';
 import Container from '/imports/ui/components/Container';
+import Input from '/imports/ui/components/Input';
 
-const Signin = ({ history }) => {
+const Signup = ({ history }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [verify, setVerify] = useState('');
 
   const handleChange = useCallback((event) => {
     switch (event.target.name) {
@@ -20,56 +21,67 @@ const Signin = ({ history }) => {
       case 'password':
         setPassword(event.target.value);
         break;
-      // no default
+      case 'verify':
+        setVerify(event.target.value);
+        break;
+            // no default
     }
   }, []);
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
 
-    Meteor.loginWithPassword(username, password, (error) => {
+    if (password !== verify) {
+      toast.error('Le mot de passe ne correspond pas.');
+      return;
+    }
+
+    Accounts.createUser({ username, password }, (error) => {
       if (error) {
         toast.error(error.reason);
       } else {
-        history.push('/');
+        history.push('/Board');
       }
     });
-  }, [username, password]);
+  }, [username, password, verify]);
 
   return (
     <Container>
-      <a href="Signup">Signup</a>
-      <a href="Listings">Listings</a>
-      <a href="Groups">Groups</a>
-      <a href="Events">Events</a>
-      <a href="Board">Board</a>
-      <Flex column justify="center">
-        <Title level="1">Welcome Onboard</Title>
-        <form onSubmit={handleSubmit}>
-          <Flex column alignItems="center">
-            <Input
-              type="text"
-              placeholder="pseudo"
-              name="username"
-              value={username}
-              onChange={handleChange}
-            />
-            <Input
-              type="password"
-              placeholder="mot de passe"
-              name="password"
-              value={password}
-              onChange={handleChange}
-            />
-            <Button
-              type="submit"
-              content="ok"
-            />
-          </Flex>
-        </form>
+      <Flex>
+        <Container width="50%" bgColor="white">
+          <Title level="1">S&apos;inscrire</Title>
+          <form onSubmit={handleSubmit}>
+            <Flex column alignItems="center">
+              <Input
+                type="text"
+                placeholder="pseudo"
+                name="username"
+                value={username}
+                onChange={handleChange}
+              />
+              <Input
+                type="password"
+                placeholder="mot de passe"
+                name="password"
+                value={password}
+                onChange={handleChange}
+              />
+              <Input
+                type="password"
+                placeholder="vérification"
+                name="verify"
+                value={verify}
+                onChange={handleChange}
+              />
+              <div>
+                <Button type="submit">Inscription</Button>
+              </div>
+            </Flex>
+          </form>
+        </Container>
       </Flex>
     </Container>
   );
 };
 
-export default Signin;
+export default Signup;

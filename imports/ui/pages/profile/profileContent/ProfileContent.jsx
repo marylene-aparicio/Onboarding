@@ -6,17 +6,14 @@ import ProfileSteps from '/imports/ui/pages/profile/profileContent/profileCompon
 import ProfileTasks from '/imports/ui/pages/profile/profileContent/profileComponents/ProfileTasks';
 import ProfileAlerts from '/imports/ui/pages/profile/profileContent/profileComponents/ProfileAlerts';
 
-const Profile = () => (
-  <Container>
+const Profile = () => {
+  
+
+
+  return (
+    <Container>
     <h3>Profile content</h3>
-    <hr />
-    <ProfileDetails />
-    <ProfileSteps />
-    <ProfileTasks />
-    <ProfileAlerts />
     <a href="Signin">Signin</a>
-    <br />
-    <a href="Signup">Signup</a>
     <br />
     <a href="Listings">Listings</a>
     <br />
@@ -25,7 +22,15 @@ const Profile = () => (
     <a href="Events">Events</a>
     <br />
     <a href="Board">Board</a>
+    <hr />
+
+    <ProfileDetails />
+    <ProfileSteps />
+    <ProfileTasks />
+    <ProfileAlerts />
+
   </Container>
-);
+  )
+};
 
 export default Profile;

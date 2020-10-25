@@ -31,7 +31,7 @@ const Signin = ({ history }) => {
       if (error) {
         toast.error(error.reason);
       } else {
-        history.push('/');
+        history.push('/Board');
       }
     });
   }, [username, password]);
@@ -40,17 +40,12 @@ const Signin = ({ history }) => {
     <Container>
       <Flex>
         <Container width="50%" bgColor="white">
-          <a href="Signup">Signup |</a>
-          <a href="Listings"> Listings |</a>
-          <a href="Groups"> Groups |</a>
-          <a href="Events"> Events |</a>
-          <a href="Board"> Board</a>
           <Flex column justify="center" bgColor="white" width="50%">
             <Title level="1">Welcome Onboard</Title>
             <form onSubmit={handleSubmit}>
               <Flex column alignItems="center">
                 <Input
-                  type="text"
+                  type="password"
                   placeholder="pseudo"
                   name="username"
                   value={username}

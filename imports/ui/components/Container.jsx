@@ -26,7 +26,7 @@ const Container = styled.div`
       return css`30%`;
     }
     return css`100%`;
-  }}; ;
+  }}; 
 
   /* Téléphone */
   @media screen and (max-width: 768px) {
@@ -38,18 +38,21 @@ const Container = styled.div`
   @media screen and (min-width: 769px) and (max-width: 991px) {
       padding-left: auto;
       padding-right: auto;
+      h1: 1.5em;
   }
 
   /* Écran */
   @media screen and (min-width: 992px) and (max-width: 1199px) {
       padding-left: auto;
       padding-right: auto;
+      h1: 1.2em;
   }
 
   /* Écran large */
   @media screen and (min-width: 1200px) {
       padding-left: auto;
       padding-right: auto;
+      h1: 1em
   }
 `;
 

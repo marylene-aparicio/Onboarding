@@ -52,6 +52,7 @@ const Title = styled(MultiTitle)`
   }};
 `;
 
+
 export default Title;
 
 // EXEMPLE :
