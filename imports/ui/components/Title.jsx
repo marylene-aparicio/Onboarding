@@ -12,6 +12,9 @@ const TitleH6 = ({ children, ...props }) => <h6 {...props}>{children}</h6>;
 const MultiTitle = (props) => {
   const Component = useMemo(() => {
     switch (props.level) {
+      case 1:
+      case '1':
+        return TitleH1;
       case 2:
       case '2':
         return TitleH2;
@@ -24,11 +27,8 @@ const MultiTitle = (props) => {
       case 5:
       case '5':
         return TitleH5;
-      case 6:
-      case '6':
-        return TitleH6;
       default:
-        return TitleH1;
+        return TitleH6;
     }
   }, []);
 
@@ -38,17 +38,35 @@ const MultiTitle = (props) => {
 const Title = styled(MultiTitle)`
   padding: 0.5em;
   padding-bottom: 1.5em;
+  font-size: ${({ level }) => {
+      if (level === '1') {
+        return css`3em`;
+      } else if (level === '2') {
+        return css`3em`;
+      } else if (level === '3') {
+        return css`2em`;
+      } else if (level === '4') {
+        return css`1.5em`;
+      } else if (level === '5') {
+        return css`1em`;
+      } 
+      return css`0.5em`;
+    }};
   color: ${({ color }) => {
     if (colors[color]) {
       return colors[color];
     }
     return colors.black;
   }};
-  font-size: ${({ title }) => {
-    if (title === 'TitleH2') {
-      return css`1.2em`;
+  width: ${({ width }) => {
+    if (width === 'width50') {
+      return css`50%`;
     }
-    return css`5em`;
+  }};
+  text-align: ${({ align }) => {
+    if (align === 'center') {
+      return css`center`;
+    }
   }};
 `;
 
@@ -58,3 +76,4 @@ export default Title;
 // EXEMPLE :
 // <Title level={1}></Title>
 // <Title level="1"></Title>
+

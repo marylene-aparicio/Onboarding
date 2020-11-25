@@ -8,6 +8,7 @@ import Title from '/imports/ui/components/Title';
 import Button from '/imports/ui/components/Button';
 import Container from '/imports/ui/components/Container';
 
+
 const Signin = ({ history }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -41,11 +42,11 @@ const Signin = ({ history }) => {
       <Flex>
         <Container width="50%" bgColor="white">
           <Flex column justify="center" bgColor="white" width="50%">
-            <Title level="1">Welcome Onboard</Title>
+            <Title align="center" level="1">Welcome Onboard</Title>
             <form onSubmit={handleSubmit}>
               <Flex column alignItems="center">
                 <Input
-                  type="password"
+                  type="text"
                   placeholder="pseudo"
                   name="username"
                   value={username}
@@ -62,7 +63,7 @@ const Signin = ({ history }) => {
                   type="submit"
                   content="ok"
                 />
-                <div id="logo">logo</div>
+                <img src="/logo.png" alt="umlaut logo"/>
               </Flex>
             </form>
           </Flex>

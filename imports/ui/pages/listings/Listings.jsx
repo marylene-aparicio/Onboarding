@@ -12,14 +12,6 @@ const Listings = () => (
     <ListingByDate />
     <ListingByName />
     <ListingByDepartment />
-    <a href="Signin">Signin</a>
-    <br />
-    <a href="Listings">Listings</a>
-    <br />
-    <a href="Groups">Groups</a>
-    <br />
-    <a href="Events">Events</a>
-    <br />
     <a href="Board">Board</a>
   </Container>
 );

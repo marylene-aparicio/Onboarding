@@ -30,8 +30,7 @@ const Container = styled.div`
 
   /* Téléphone */
   @media screen and (max-width: 768px) {
-      padding-left: 1em;
-      padding-right: 1em;
+      h1: 0.2em;
   }
 
   /* Tablette */

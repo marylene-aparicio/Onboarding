@@ -1,0 +1,6 @@
+{
+    "email1": {
+        "html": "contenu version html avec balise html <a href='{{url}}'>cliquez ici<a/>",
+        "text": "version text, on peut mettre une {{url}} au lieu d'une balise"
+    }
+}
