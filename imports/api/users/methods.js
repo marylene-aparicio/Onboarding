@@ -2,24 +2,26 @@ import { Meteor } from 'meteor/meteor';
 import { Email } from  'meteor/email';
 import emails from '/imports/utils/emails';
 
-// import Collection from '.';
+import EmployeesCollection from '.';
 
 Meteor.methods({
-    'employees.create': function ({}) {
+    'employee.create': function ({}) {
         if (!this.userId) {
         throw new Meteor.Error('403', 'Vous devez être connecté');
         }
-        const sanitizedContent = content
-        .replace(/</gi, '&lt;')
-        .replace(/\n/gi, '<br/>');
 
-        employees.insert({
-        content: sanitizedContent,
-        userId: this.userId,
-        createdAt: new Date(),
+        EmployeesCollection.insert({
+            userId: this.userId,
+            createdAt: new Date(),
+            arrival: {
+                validated: false,
+            }, 
+            departure: {
+                validated: false,
+            } 
         });
     },
-
+      
     'emails.send' : function ({ to, subject }) {
         Email.send({ 
             to,

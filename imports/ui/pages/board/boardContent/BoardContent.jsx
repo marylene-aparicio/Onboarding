@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Container from '/imports/ui/components/Container';
 
@@ -6,16 +7,11 @@ const BoardContent = () => {
 
   return (
     <Container>
-      <h3>Board Content</h3>
+      <Link to="/listings">Listings</Link>
       <br />
-      <a href="Listings">Listings</a>
+      <Link to="/profile/details">Profile</Link>
       <br />
-      <a href="Profile">Profile</a>
-      <br />
-      <a href="Events">Events</a>
-      <br />
-      <a href="ProfileCreateStepOne">Create Newcomer</a>
-      <br />
+      <Link to="/newProfile/stepOne">Create Newcomer</Link>
     </Container>
   );
 };

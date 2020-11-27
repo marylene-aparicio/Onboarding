@@ -38,7 +38,7 @@ const Signin = ({ history }) => {
   }, [username, password]);
 
   return (
-    <Container>
+    <Container height="100%">
       <Flex>
         <Container width="50%" bgColor="white">
           <Flex column justify="center" bgColor="white" width="50%">
@@ -46,7 +46,7 @@ const Signin = ({ history }) => {
             <form onSubmit={handleSubmit}>
               <Flex column alignItems="center">
                 <Input
-                  type="text"
+                  type="password"
                   placeholder="pseudo"
                   name="username"
                   value={username}

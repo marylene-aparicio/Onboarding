@@ -1,4 +1,5 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 import Container from '/imports/ui/components/Container';
 import ListingByDate from '/imports/ui/pages/listings/listingBy/ListingByDate';
@@ -9,9 +10,11 @@ const Listings = () => (
   <Container>
     <h2>Listings</h2>
     <hr />
-    <ListingByDate />
-    <ListingByName />
-    <ListingByDepartment />
+    <Switch>
+      <Route path="/listing/byDepartment" component={ListingByDepartment}/>    
+      <Route path="/listing/byName" component={ListingByName} />
+      <Route path="/listing/byDate" component={ListingByDate} />
+    </Switch>
     <a href="Board">Board</a>
   </Container>
 );

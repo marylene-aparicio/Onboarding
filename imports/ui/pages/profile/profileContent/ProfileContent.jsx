@@ -9,27 +9,13 @@ import ProfileAlerts from '/imports/ui/pages/profile/profileContent/profileCompo
 
 const Profile = () => {
   
-
-
   return (
     <Container>
-      <h3>Profile content</h3>
-      <a href="Signin">Signin</a>
-      <br />
-      <a href="Listings">Listings</a>
-      <br />
-      <a href="Groups">Groups</a>
-      <br />
-      <a href="Events">Events</a>
-      <br />
-      <a href="Board">Board</a>
-      <hr />
-
       <Switch>
         <Route path="/profile/tasks" component={ProfileTasks} />
         <Route path="/profile/steps" component={ProfileSteps} />
         <Route path="/profile/alerts" component={ProfileAlerts}/>    
-        <Route path="/profile" component={ProfileDetails}/> 
+        <Route path="/profile/details" component={ProfileDetails}/> 
       </Switch>
     </Container>
   )

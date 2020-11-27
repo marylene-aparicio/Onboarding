@@ -13,3 +13,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+#react-target {
+  height: 100vh;
+}

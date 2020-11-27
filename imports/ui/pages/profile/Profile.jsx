@@ -7,7 +7,7 @@ import ProfileContent from '/imports/ui/pages/profile/profileContent/ProfileCont
 const Profile = () => {
 
   return (
-    <Container>
+    <Container height="100%" padding="20px">
     <h2>Profile</h2>
     <ProfileHeader />
     <ProfileContent />

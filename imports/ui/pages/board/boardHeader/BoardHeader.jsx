@@ -21,7 +21,6 @@ const BoardHeader = () => {
 
   return (
     <div>
-      <h3>Board Header</h3>
       {connectionLink}
       <hr />
     </div>
