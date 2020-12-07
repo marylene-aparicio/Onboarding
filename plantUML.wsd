@@ -1,0 +1,68 @@
+@startuml
+
+    actor Recrutement
+    actor Achats
+    actor RH
+    Database DB
+    actor Managers
+    actor Informatique
+    actor Finances
+
+    Recrutement -> RH : Sent offert salarié - créer profil
+    RH o-> DB : Profil créé
+
+    activate Managers
+    DB o-> Managers : Valider date arrivée
+    activate RH
+    Managers x--> RH : Refusée. Valider date arrivée
+    RH x--> Managers : Refusée. Valider date arrivée
+    deactivate RH
+    Managers --> DB : Date arrivée acceptée
+    deactivate Managers
+
+    == Lorsque la date est validée, les événements suivants seront lancés simultanément ==
+
+    DB -> RH : Nouvel arrivant + date
+    DB -> Recrutement : Nouvel arrivant + date
+    DB -> Achats : Nouvel arrivant + date
+    DB -> Managers : Nouvel arrivant + date
+    DB -> Informatique : Nouvel arrivant + date
+    DB -> Finances : Nouvel arrivant + date
+    DB o-> RH : Créer compte BiCube
+    DB o-> RH : Créer compte Eurecia
+
+    DB o-> Managers : Remplir Formulaire allocation\nmateriel informatique
+    activate Managers
+    Managers -> Informatique : Demande d'allocation Informatique
+
+    activate Informatique
+    Informatique --> Managers : Matériel alloué
+    deactivate Informatique
+    deactivate Managers
+    Informatique -> DB : Materiel alloué
+
+    DB o-> Finances : Lancer demande de visa (si besoin)
+    activate Finances
+    Finances --> DB : Visa reçu
+    DB -> RH : Visa reçu
+    deactivate Finances
+
+    == Rappels à J-1 ==
+
+    DB -> RH : Nouvel arrivant J-1
+    DB -> Recrutement : Nouvel arrivant J-1
+    DB -> Achats : Nouvel arrivant J-1
+    DB -> Managers : Nouvel arrivant J-1
+    DB -> Informatique : Nouvel arrivant J-1
+    DB -> Finances : Nouvel arrivant J-1
+
+    == Rappels à Jour J ==
+
+    DB -> RH : Nouvel arrivant Jour J
+    DB -> Recrutement : Nouvel arrivant Jour J
+    DB -> Achats : Nouvel arrivant Jour J
+    DB -> Managers : Nouvel arrivant Jour J
+    DB -> Informatique : Nouvel arrivant Jour J
+    DB -> Finances : Nouvel arrivant Jour J
+
+@enduml
