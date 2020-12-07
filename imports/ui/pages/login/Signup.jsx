@@ -46,27 +46,27 @@ const Signup = ({ history }) => {
   }, [username, password, verify]);
 
   return (
-    <Container>
+    <Container height="100%">
       <Flex>
-        <Container width="50%" bgColor="white">
+        <Container height="100%" width="50%" bgColor="white">
           <Title level="1">S&apos;inscrire</Title>
           <form onSubmit={handleSubmit}>
             <Flex column alignItems="center">
-              <Input
+              <Input width="60%"
                 type="text"
                 placeholder="pseudo"
                 name="username"
                 value={username}
                 onChange={handleChange}
               />
-              <Input
+              <Input width="60%"
                 type="password"
                 placeholder="mot de passe"
                 name="password"
                 value={password}
                 onChange={handleChange}
               />
-              <Input
+              <Input width="60%"
                 type="password"
                 placeholder="vérification"
                 name="verify"

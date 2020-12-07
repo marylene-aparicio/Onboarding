@@ -16,23 +16,3 @@
         "text": "<Prenom><Nom> est engagé comme sous-traitant en tant que <Poste> dans le service <Service> pour le projet <Projet>. Sa date d'embauche est prévue le <DateEmbauche>. Confirmez-vous cette date ? Cliquez sur le lien ci-dessous <oui> <non>"
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"employee.create4": {
-    "html": "contenu version html avec balise html <a href='{{url}}'>cliquez ici<a/>",
-    "text": "version text, on peut mettre une {{url}} au lieu d'une balise"
-},

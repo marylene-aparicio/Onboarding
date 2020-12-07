@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 // import LoggedRoute from 'imports/ui/Components/LoggedRoute';
 
 import Signin from '/imports/ui/pages/login/Signin';
+import Signup from '/imports/ui/pages/login/Signup';
 import Board from '/imports/ui/pages/board/Board';
 import Events from '/imports/ui/pages/events/Events';
 import Groups from '/imports/ui/pages/groups/Groups';
@@ -19,6 +20,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={Signin} />
       <Route path="/signin" component={Signin} />
+      <Route path="/signup" component={Signup} />
       <LoggedRoute path="/board" component={Board} />
       <LoggedRoute path="/events" component={Events} />
       <LoggedRoute path="/groups" component={Groups} />

@@ -40,7 +40,7 @@ const Signin = ({ history }) => {
   return (
     <Container height="100%">
       <Flex>
-        <Container width="50%" bgColor="white">
+        <Container height="100%" width="50%" bgColor="white">
           <Flex column justify="center" bgColor="white" width="50%">
             <Title align="center" level="1">Welcome Onboard</Title>
             <form onSubmit={handleSubmit}>

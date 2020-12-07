@@ -9,6 +9,7 @@ const Container = styled.div`
     }
     return colors.greyBackground;
   }};
+
   width: ${({ width }) => {
     if (width === '80%') {
       return css`80%`;
@@ -24,20 +25,22 @@ const Container = styled.div`
     }
     return css`100%`;
   }}; 
+
   height: ${({ height }) => {
     if (height === '100%') {
       return css`100%`;
     }
     return css`max-content`;
   }}; 
+
   padding: ${({ padding }) => {
     if (padding === '20px') {
       return css`20px`;
     }
     return css`0px`;
   }}; 
-  box-sizing: border-box;
 
+  box-sizing: border-box;
 
   /* Téléphone */
   @media screen and (max-width: 768px) {
