@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 import Container from '/imports/ui/components/Container';
@@ -9,33 +9,129 @@ import Button from '/imports/ui/components/Button';
 
 const ProfileCreateStepTwo = () => {
 
+  const handleChange = useCallback((event) => {
+    switch (event.target.name) {
+      case 'firstName':
+        setFirstName(event.target.value);
+        break;
+      case 'secondName':
+        setSecondName(event.target.value);
+        break;
+      case 'nationality':
+        setNationality(event.target.value);
+        break;
+      case 'mail':
+        setMail(event.target.value);
+        break;
+      case 'jobName':
+        setJobName(event.target.value);
+        break;
+      case 'jobLocation':
+        setJobLocation(event.target.value);
+        break;
+      case 'department':
+        setDepartment(event.target.value);
+        break;
+      case 'manager':
+        setManager(event.target.value);
+        break;
+      case 'clientName':
+        setClientName(event.target.value);
+        break;
+      case 'arrival':
+        setArrival(event.target.value);
+        break;
+      case 'departure':
+        setDeparture(event.target.value);
+        break;
+      // no default
+    }
+  }, []);
+
   return (
     <Container>
       <Flex column justifyContent="flex-start">
         <Title level="2">Newcomer - Step two</Title>
         <Container width="30%">
             <label>First Name</label>
-            <Input type="text" name="firstName" value={firstName} placeHolder="First Name"/>
+            <Input 
+              type="text" 
+              name="firstName" 
+              value={firstName} 
+              placeHolder="First Name"
+              onChange={handleChange} 
+            />
             <label>Second Name</label>
-            <Input type="text" name="secondName" value={secondName} placeHolder="Second Name"/>
+            <Input 
+              type="text" 
+              name="secondName" 
+              value={secondName} 
+              placeHolder="Second Name"
+              onChange={handleChange} 
+            />
             <label>Nationality</label>
-            <Input type="text" name="nationality" value={nationality}/>
+            <Input 
+              type="text" 
+              name="nationality" 
+              value={nationality}
+              onChange={handleChange} 
+            />
             <label>E-mail</label>
-            <Input type="text" name="mail" value={mail}/>
+            <Input 
+              type="text" 
+              name="mail" 
+              value={mail}
+              onChange={handleChange} 
+            />
             <label>Job</label>
-            <Input type="text" name="jobName" value={jobName}/>
-            <label>Location</label>
-            <Input type="text" name="location" value={location}/>
+            <Input 
+              type="text" 
+              name="jobName" 
+              value={jobName}
+              onChange={handleChange} 
+            />
+            <label>jobLocation</label>
+            <Input 
+              type="text" 
+              name="jobLocation" 
+              value={jobLocation}
+              onChange={handleChange} 
+            />
             <label>Department</label>
-            <Input type="text" name="department" value={department}/>
+            <Input 
+              type="text" 
+              name="department" 
+              value={department}
+              onChange={handleChange} 
+            />
             <label>Manager</label>
-            <Input type="text" name="manager" value={manager}/>
+            <Input 
+              type="text" 
+              name="manager" 
+              value={manager}
+              onChange={handleChange} 
+            />
             <label>Client name</label>
-            <Input type="text" name="clientName" value={clientName}/>
+            <Input 
+              type="text" 
+              name="clientName" 
+              value={clientName}
+              onChange={handleChange} 
+            />
             <label>Estimated arrival date</label>
-            <Input type="date" name="arrival.date" value={arrival.date}/>
+            <Input 
+              type="date" 
+              name="arrival"
+              value={arrival}
+              onChange={handleChange} 
+            />
             <label>Estimated departure date</label>
-            <Input type="date" name="departure.date" value={departure.date}/>
+            <Input 
+              type="date" 
+              name="departure" 
+              value={departure}
+              onChange={handleChange} 
+            />
             <div>
               <Link to="/newProfile/stepOne">Previous</Link>
               <Button type="submit">Save</Button>

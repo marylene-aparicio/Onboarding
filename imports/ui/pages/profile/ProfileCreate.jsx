@@ -13,6 +13,22 @@ const ProfileCreate = () => {
   const [biCubeAccount, setBiCubeAccount] = useState('');
   const [umlautMission, setUmlautMission] = useState('');
   const [clientMission, setClientMission] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [secondName, setSecondName] = useState('');
+  const [nationality, setNationality] = useState('');
+  const [mail, setMail] = useState('');
+  const [jobName, setJobName] = useState('');
+  const [jobLocation, setJobLocation] = useState('');
+  const [department, setDepartment] = useState('');
+  const [manager, setManager] = useState('');
+  const [clientName, setClientName] = useState('');
+  const [arrival, setArrival] = useState({
+    date: '',
+  });
+  const [departure, setDeparture] = useState({
+    date: '',
+  });
+  currentStep = useState(1); 
 
   const handleChange = useCallback((event) => {
     switch (event.target.name) {
@@ -34,6 +50,39 @@ const ProfileCreate = () => {
       case 'clientMission':
         setClientMission(event.target.value);
         break;
+      case 'firstName':
+        setFirstName(event.target.value);
+        break;
+      case 'secondName':
+        setSecondName(event.target.value);
+        break;
+      case 'nationality':
+        setNationality(event.target.value);
+        break;
+      case 'mail':
+        setMail(event.target.value);
+        break;
+      case 'jobName':
+        setJobName(event.target.value);
+        break;
+      case 'jobLocation':
+        setJobLocation(event.target.value);
+        break;
+      case 'department':
+        setDepartment(event.target.value);
+        break;
+      case 'manager':
+        setManager(event.target.value);
+        break;
+      case 'clientName':
+        setClientName(event.target.value);
+        break;
+      case 'arrival':
+        setArrival(event.target.value);
+        break;
+      case 'departure':
+        setDeparture(event.target.value);
+        break;
       // no default
     }
   }, []);
@@ -53,6 +102,17 @@ const ProfileCreate = () => {
         setBiCubeAccount('');
         setUmlautMission('');
         setClientMission('');
+        setFirstName('');
+        setSecondName('');
+        setNationality('');
+        setMail('');
+        setJobName('');
+        setJobLocation('');
+        setDepartment('');
+        setManager('');
+        setClientName('');
+        setArrival('');
+        setDeparture('');
       }
     });
 
@@ -62,8 +122,19 @@ const ProfileCreate = () => {
     eureciaAccount, 
     biCubeAccount, 
     umlautMission, 
-    clientMission
-  ]);
+    clientMission,
+    firstName,
+    secondName,
+    nationality,
+    mail,
+    jobName,
+    jobLocation,
+    department,
+    manager,
+    clientName,
+    arrival,
+    departure,
+  ]); 
 
   return (
     <Container height="100%" padding="20px">
@@ -83,6 +154,17 @@ const ProfileCreate = () => {
           <Route path="/newProfile/stepTwo" 
             component={ProfileCreateStepTwo} 
             handleChange={handleChange}
+            firstName={firstName}
+            secondName={secondName}
+            nationality={nationality}
+            mail={mail}
+            jobName={jobName}
+            jobLocation={jobLocation}
+            department={department}
+            manager={manager}
+            clientName={clientName}
+            arrival={arrival}
+            departure={departure}
           />
         </Switch>
       </form>

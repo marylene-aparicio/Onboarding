@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 import Container from '/imports/ui/components/Container';
@@ -6,10 +6,30 @@ import Flex from '/imports/ui/components/Flex';
 import Title from '/imports/ui/components/Title';
 
 const ProfileCreateStepOne = () => {
-  
-  if (currentStep !== 1) {
-    return null
-  }
+
+  const handleChange = useCallback((event) => {
+    switch (event.target.name) {
+      case 'express':
+        setExpress(event.target.value);
+        break;
+      case 'hiringType':
+        setHiringType(event.target.value);
+        break;
+      case 'eureciaAccount':
+        setEureciaAccount(event.target.value);
+        break;
+      case 'biCubeAccount':
+        setBiCubeAccount(event.target.value);
+        break;
+      case 'umlautMission':
+        setUmlautMission(event.target.value);
+        break;
+      case 'clientMission':
+        setClientMission(event.target.value);
+        break;
+      // no default
+    }
+  }, []);
 
   return (
     <Container>
@@ -18,13 +38,13 @@ const ProfileCreateStepOne = () => {
           <div>
             <h3>Arrival</h3>
             <hr/>
+            <label>Express</label>
             <input 
               type="checkbox" 
               name="express" 
-              value={express} 
-              onChange={handleChange}
+              value={express}
+              onChange={handleChange} 
             />
-            <label>Express</label>
           </div>  
           <div>
             <h3>Hiring Type</h3>
@@ -34,7 +54,7 @@ const ProfileCreateStepOne = () => {
               type="radio" 
               name="hiringType" 
               value={hiringType} 
-              onChange={handleChange} 
+              onChange={handleChange}
               checked
             />
             <label>Sub-contractor / Freelance</label>
@@ -60,7 +80,7 @@ const ProfileCreateStepOne = () => {
               type="checkbox" 
               name="biCubeAccount"
               value={biCubeAccount}
-              onChange={handleChange} 
+              onChange={handleChange}
             />
           </div>
           <div>
@@ -78,7 +98,7 @@ const ProfileCreateStepOne = () => {
               type="checkbox"
               name="clientMission"
               value={clientMission}
-              onChange={handleChange} 
+              onChange={handleChange}
             />
           </div>
           <Link to="/newProfile/stepTwo">Next</Link>
