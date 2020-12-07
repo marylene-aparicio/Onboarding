@@ -16,6 +16,9 @@ Meteor.methods({
             if (!this.userId) {
             throw new Meteor.Error('403', 'Vous devez être connecté');
         }
+        const thisDate = new Date()
+        console.log(arrival);
+        console.log(thisDate);
 
         check(express, Boolean);
         check(hiringType, String);
@@ -32,8 +35,10 @@ Meteor.methods({
         check(department, String);
         check(manager, String);
         check(clientName, String);
-        check(arrival, Boolean);
-        check(departure, String);
+        check(arrival, Date);
+        check(departure, Date);
+
+
 
         EmployeesCollection.insert({
             userId: this.userId,
@@ -74,11 +79,21 @@ Meteor.methods({
         EmployeeCollection.remove(employee);
     },
 
+    'employee.update': function ({ _id }) {
+        //Rajouter condition de role Admin !!!
+        if (!this.userId) {
+        throw new Meteor.Error('403', 'Vous devez être connecté');
+        }
+        const employee = EmployeeCollection.findOne(_id);
+        EmployeeCollection.update(employee);
+    },
+
     'employee.all': function () {
         return EmployeeCollection.find({}, {
           sort: { createdAt: 1 },
           limit: 10000,
         }).fetch();
+
     },
 
     'emails.send' : function ({ to, subject }) {

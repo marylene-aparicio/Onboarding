@@ -28,7 +28,6 @@ const ProfileCreate = () => {
   const [departure, setDeparture] = useState({
     date: '',
   });
-  currentStep = useState(1); 
 
   const handleChange = useCallback((event) => {
     switch (event.target.name) {

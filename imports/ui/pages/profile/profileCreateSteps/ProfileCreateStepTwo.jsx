@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Container from '/imports/ui/components/Container';
@@ -8,6 +8,22 @@ import Input from '/imports/ui/components/Input';
 import Button from '/imports/ui/components/Button';
 
 const ProfileCreateStepTwo = () => {
+
+  const [firstName, setFirstName] = useState('');
+  const [secondName, setSecondName] = useState('');
+  const [nationality, setNationality] = useState('');
+  const [mail, setMail] = useState('');
+  const [jobName, setJobName] = useState('');
+  const [jobLocation, setJobLocation] = useState('');
+  const [department, setDepartment] = useState('');
+  const [manager, setManager] = useState('');
+  const [clientName, setClientName] = useState('');
+  const [arrival, setArrival] = useState({
+    date: '',
+  });
+  const [departure, setDeparture] = useState({
+    date: '',
+  });
 
   const handleChange = useCallback((event) => {
     switch (event.target.name) {

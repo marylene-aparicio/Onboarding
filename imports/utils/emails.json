@@ -1,11 +1,11 @@
 {
     "employee.create1": {
-        "html": "Embauche expresse. <Prenom><Nom> est embauché en tant que <Poste> dans le service <Service>. Sa date d'embauche est prévue le <DateEmbauche>.",
-        "text": "Embauche expresse. <Prenom><Nom> est embauché en tant que <Poste> dans le service <Service>. Sa date d'embauche est prévue le <DateEmbauche>."
+        "html": "Express hiring ! {employee.firstName}{employee.secondName} he's hired as {employee.hiringType} like {employee.jobName} in {employee.departement} department. His arrival date is scheduled for {employee.arrival.date}.",
+        "text": "Express hiring ! {employee.firstName}{employee.secondName} he's hired as {employee.hiringType} like {employee.jobName} in {employee.departement} department. His arrival date is scheduled for {employee.arrival.date}."
     },
     "employee.create2": {
-        "html": "Embauche expresse. <Prenom><Nom> est engagé comme sous-traitant en tant que <Poste> dans le service <Service> pour le projet <Projet>. Sa date d'embauche est prévue le <DateEmbauche>.",
-        "text": "Embauche expresse. <Prenom><Nom> est engagé comme sous-traitant en tant que <Poste> dans le service <Service> pour le projet <Projet>. Sa date d'embauche est prévue le <DateEmbauche>."
+        "html": "Express hiring ! <Prenom><Nom> est engagé comme sous-traitant en tant que <Poste> dans le service <Service> pour le projet <Projet>. Sa date d'embauche est prévue le <DateEmbauche>.",
+        "text": "Express hiring ! <Prenom><Nom> est engagé comme sous-traitant en tant que <Poste> dans le service <Service> pour le projet <Projet>. Sa date d'embauche est prévue le <DateEmbauche>."
     },
     "employee.create3": {
         "html": "<Prenom><Nom> est embauché en tant que <Poste> dans le service <Service>. Sa date d'embauche est prévue le <DateEmbauche>. Confirmez-vous cette date ? Cliquez sur le lien ci-dessous <oui> <non>",
@@ -15,4 +15,4 @@
         "html": "<Prenom><Nom> est engagé comme sous-traitant en tant que <Poste> dans le service <Service> pour le projet <Projet>. Sa date d'embauche est prévue le <DateEmbauche>. Confirmez-vous cette date ? Cliquez sur le lien ci-dessous <oui> <non>",
         "text": "<Prenom><Nom> est engagé comme sous-traitant en tant que <Poste> dans le service <Service> pour le projet <Projet>. Sa date d'embauche est prévue le <DateEmbauche>. Confirmez-vous cette date ? Cliquez sur le lien ci-dessous <oui> <non>"
     }
-}
+} 

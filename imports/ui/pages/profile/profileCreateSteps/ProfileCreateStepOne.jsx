@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Container from '/imports/ui/components/Container';
@@ -6,6 +6,13 @@ import Flex from '/imports/ui/components/Flex';
 import Title from '/imports/ui/components/Title';
 
 const ProfileCreateStepOne = () => {
+
+  const [express, setExpress] = useState('');
+  const [hiringType, setHiringType] = useState('');
+  const [eureciaAccount, setEureciaAccount] = useState('');
+  const [biCubeAccount, setBiCubeAccount] = useState('');
+  const [umlautMission, setUmlautMission] = useState('');
+  const [clientMission, setClientMission] = useState('');
 
   const handleChange = useCallback((event) => {
     switch (event.target.name) {
