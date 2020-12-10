@@ -1,73 +1,43 @@
 import { Meteor } from 'meteor/meteor';
+import { check } from 'meteor/check';
+
 import { Email } from  'meteor/email';
 import emails from '/imports/utils/emails';
+
 
 import EmployeesCollection from '.';
 
 Meteor.methods({
-    'employee.create': function ({ 
-        express, hiringType, eureciaAccount, biCubeAccount, 
-        umlautMission, clientMission, firstName,
-        secondName, nationality, mail,
-        jobName, jobLocation, department,
-        manager, clientName }) 
-        {
-            //Rajouter condition de role autorisé !!!
-            if (!this.userId) {
+    'employee.create': function ({ employee }) {
+        //Rajouter condition de role autorisé !!!
+        if (!this.userId) {
             throw new Meteor.Error('403', 'Vous devez être connecté');
         }
-        const thisDate = new Date()
-        console.log(arrival);
-        console.log(thisDate);
 
-        check(express, Boolean);
-        check(hiringType, String);
-        check(eureciaAccount, Boolean);
-        check(biCubeAccount, Boolean);
-        check(umlautMission, Boolean);
-        check(clientMission, Boolean);
-        check(firstName, String);
-        check(secondName, String);
-        check(nationality, String);
-        check(mail, String);
-        check(jobName, String);
-        check(jobLocation, String);
-        check(department, String);
-        check(manager, String);
-        check(clientName, String);
-        check(arrival, Date);
-        check(departure, Date);
+        check(employee.express, Boolean);
+        check(employee.hiringType, String);
+        check(employee.eureciaAccount, Boolean);
+        check(employee.biCubeAccount, Boolean);
+        check(employee.umlautMission, Boolean);
+        check(employee.clientMission, Boolean);
+        check(employee.firstName, String);
+        check(employee.secondName, String);
+        check(employee.nationality, String);
+        check(employee.mail, String);
+        check(employee.jobName, String);
+        check(employee.jobLocation, String);
+        check(employee.department, String);
+        check(employee.manager, String);
+        check(employee.clientName, String);
+        check(employee.arrival.date, Date);
+        check(employee.arrival.validated, Boolean);
+        check(employee.departure.date, Date);
+        check(employee.departure.validated, Boolean);
 
+        employee.userId = this.userId;
+        employee.createdAt = new Date();
+        EmployeesCollection.insert(employee);
 
-
-        EmployeesCollection.insert({
-            userId: this.userId,
-            createdAt: new Date(),
-            express, 
-            hiringType, 
-            eureciaAccount, 
-            biCubeAccount, 
-            umlautMission, 
-            clientMission, 
-            firstName,
-            secondName,
-            nationality,
-            mail,
-            jobName,
-            jobLocation,
-            department,
-            manager,
-            clientName,
-            arrival: {
-                date,
-                validated: false,
-            }, 
-            departure: {
-                date,
-                validated: false,
-            }, 
-            newcomer: true,
-        });
     },
 
     'employee.delete': function ({ _id }) {

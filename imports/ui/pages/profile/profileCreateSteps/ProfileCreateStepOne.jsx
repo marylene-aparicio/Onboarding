@@ -7,32 +7,12 @@ import Title from '/imports/ui/components/Title';
 
 const ProfileCreateStepOne = () => {
 
-  const [express, setExpress] = useState('');
-  const [hiringType, setHiringType] = useState('');
-  const [eureciaAccount, setEureciaAccount] = useState('');
-  const [biCubeAccount, setBiCubeAccount] = useState('');
-  const [umlautMission, setUmlautMission] = useState('');
-  const [clientMission, setClientMission] = useState('');
+  const [employee, setEmployee] = useState('');
 
   const handleChange = useCallback((event) => {
     switch (event.target.name) {
-      case 'express':
-        setExpress(event.target.value);
-        break;
-      case 'hiringType':
-        setHiringType(event.target.value);
-        break;
-      case 'eureciaAccount':
-        setEureciaAccount(event.target.value);
-        break;
-      case 'biCubeAccount':
-        setBiCubeAccount(event.target.value);
-        break;
-      case 'umlautMission':
-        setUmlautMission(event.target.value);
-        break;
-      case 'clientMission':
-        setClientMission(event.target.value);
+      case 'employee':
+        setEmployee(event.target.value);
         break;
       // no default
     }
@@ -49,8 +29,9 @@ const ProfileCreateStepOne = () => {
             <input 
               type="checkbox" 
               name="express" 
-              value={express}
+              value={employee.express}
               onChange={handleChange} 
+              required
             />
           </div>  
           <div>
@@ -59,16 +40,16 @@ const ProfileCreateStepOne = () => {
             <label>Employee</label>
             <input 
               type="radio" 
-              name="hiringType" 
-              value={hiringType} 
+              name="employee" 
+              value={employee.hiringType} 
               onChange={handleChange}
               checked
             />
             <label>Sub-contractor / Freelance</label>
             <input 
               type="radio" 
-              name="hiringType"
-              value={hiringType} 
+              name="freelanceSBC"
+              value={employee.hiringType} 
               onChange={handleChange}
             />
           </div>
@@ -79,15 +60,17 @@ const ProfileCreateStepOne = () => {
             <input 
               type="checkbox" 
               name="eureciaAccount"
-              value={eureciaAccount} 
+              value={employee.eureciaAccount} 
               onChange={handleChange}
+              required
             />
             <label>Bi-cube</label>
             <input 
               type="checkbox" 
               name="biCubeAccount"
-              value={biCubeAccount}
+              value={employee.biCubeAccount}
               onChange={handleChange}
+              required
             />
           </div>
           <div>
@@ -97,15 +80,17 @@ const ProfileCreateStepOne = () => {
             <input 
               type="checkbox"
               name="umlautMission"
-              value={umlautMission}
+              value={employee.umlautMission}
               onChange={handleChange}
+              required
             />
             <label>Other</label>
             <input 
               type="checkbox"
               name="clientMission"
-              value={clientMission}
+              value={employee.clientMission}
               onChange={handleChange}
+              required
             />
           </div>
           <Link to="/newProfile/stepTwo">Next</Link>

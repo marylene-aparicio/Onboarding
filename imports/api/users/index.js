@@ -3,6 +3,15 @@ import SimpleSchema from 'simpl-schema';
 
 const EmployeesCollection = new Mongo.Collection('employees');
 
+const DateSchema = new SimpleSchema({
+  date: {
+    type: Date
+  },
+  validated: {
+    type: Boolean
+  }
+});
+
 const EmployeesSchema = new SimpleSchema({
   userId: {
     type: String,
@@ -17,16 +26,16 @@ const EmployeesSchema = new SimpleSchema({
     type: String,
   },
   eureciaAccount: {
-    type: Boolean, 
+    type: Boolean,
   },
   biCubeAccount: {
-    type: Boolean, 
+    type: Boolean,
   },
   umlautMission: {
-    type: Boolean, 
+    type: Boolean,
   },
   clientMission: {
-    type: Boolean, 
+    type: Boolean,
   },
   firstName: {
     type: String,
@@ -55,14 +64,15 @@ const EmployeesSchema = new SimpleSchema({
   clientName: {
     type: String,
   },
-  arrival: Object,
-  'arrival.date': Date,
-  'arrival.validated': Boolean,
-  departure: Object,
-  'departure.date': Date,
-  'departure.validated': Boolean,
+  arrival: {
+    type: DateSchema
+  },
+  departure: {
+    type: DateSchema
+  }
 });
 
 EmployeesCollection.attachSchema(EmployeesSchema);
+EmployeesCollection.attachSchema(DateSchema);
 
 export default EmployeesCollection;

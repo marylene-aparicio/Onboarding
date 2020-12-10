@@ -9,56 +9,12 @@ import Button from '/imports/ui/components/Button';
 
 const ProfileCreateStepTwo = () => {
 
-  const [firstName, setFirstName] = useState('');
-  const [secondName, setSecondName] = useState('');
-  const [nationality, setNationality] = useState('');
-  const [mail, setMail] = useState('');
-  const [jobName, setJobName] = useState('');
-  const [jobLocation, setJobLocation] = useState('');
-  const [department, setDepartment] = useState('');
-  const [manager, setManager] = useState('');
-  const [clientName, setClientName] = useState('');
-  const [arrival, setArrival] = useState({
-    date: '',
-  });
-  const [departure, setDeparture] = useState({
-    date: '',
-  });
+  const [employee, setEmployee] = useState('');
 
   const handleChange = useCallback((event) => {
     switch (event.target.name) {
-      case 'firstName':
-        setFirstName(event.target.value);
-        break;
-      case 'secondName':
-        setSecondName(event.target.value);
-        break;
-      case 'nationality':
-        setNationality(event.target.value);
-        break;
-      case 'mail':
-        setMail(event.target.value);
-        break;
-      case 'jobName':
-        setJobName(event.target.value);
-        break;
-      case 'jobLocation':
-        setJobLocation(event.target.value);
-        break;
-      case 'department':
-        setDepartment(event.target.value);
-        break;
-      case 'manager':
-        setManager(event.target.value);
-        break;
-      case 'clientName':
-        setClientName(event.target.value);
-        break;
-      case 'arrival':
-        setArrival(event.target.value);
-        break;
-      case 'departure':
-        setDeparture(event.target.value);
+      case 'employee':
+        setEmployee(event.target.value);
         break;
       // no default
     }
@@ -73,80 +29,91 @@ const ProfileCreateStepTwo = () => {
             <Input 
               type="text" 
               name="firstName" 
-              value={firstName} 
+              value={employee.firstName} 
               placeHolder="First Name"
               onChange={handleChange} 
+              required
             />
             <label>Second Name</label>
             <Input 
               type="text" 
               name="secondName" 
-              value={secondName} 
+              value={employee.secondName} 
               placeHolder="Second Name"
               onChange={handleChange} 
+              required
             />
             <label>Nationality</label>
             <Input 
               type="text" 
               name="nationality" 
-              value={nationality}
-              onChange={handleChange} 
+              value={employee.nationality}
+              onChange={handleChange}
+              required 
             />
             <label>E-mail</label>
             <Input 
               type="text" 
               name="mail" 
-              value={mail}
-              onChange={handleChange} 
+              value={employee.mail}
+              onChange={handleChange}
+              required 
             />
             <label>Job</label>
             <Input 
               type="text" 
               name="jobName" 
-              value={jobName}
+              value={employee.jobName}
               onChange={handleChange} 
+              required
             />
             <label>jobLocation</label>
             <Input 
               type="text" 
               name="jobLocation" 
-              value={jobLocation}
+              value={employee.jobLocation}
               onChange={handleChange} 
+              required
             />
             <label>Department</label>
             <Input 
               type="text" 
               name="department" 
-              value={department}
+              value={employee.department}
               onChange={handleChange} 
+              required
             />
             <label>Manager</label>
             <Input 
               type="text" 
               name="manager" 
-              value={manager}
+              value={employee.Linkmanager}
               onChange={handleChange} 
+              required
             />
             <label>Client name</label>
             <Input 
               type="text" 
               name="clientName" 
-              value={clientName}
+              value={employee.clientName}
               onChange={handleChange} 
+              required
             />
             <label>Estimated arrival date</label>
             <Input 
               type="date" 
               name="arrival"
-              value={arrival}
+              value={employee.arrival}
               onChange={handleChange} 
+              required
             />
             <label>Estimated departure date</label>
             <Input 
               type="date" 
               name="departure" 
-              value={departure}
+              value={employee.departure}
               onChange={handleChange} 
+              required
             />
             <div>
               <Link to="/newProfile/stepOne">Previous</Link>

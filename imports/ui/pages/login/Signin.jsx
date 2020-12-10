@@ -51,6 +51,7 @@ const Signin = ({ history }) => {
                   name="username"
                   value={username}
                   onChange={handleChange}
+                  required
                 />
                 <Input
                   type="password"
@@ -58,6 +59,7 @@ const Signin = ({ history }) => {
                   name="password"
                   value={password}
                   onChange={handleChange}
+                  required
                 />
                 <Button
                   type="submit"
