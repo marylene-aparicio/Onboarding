@@ -9,7 +9,7 @@ import EmployeesCollection from '.';
 
 Meteor.methods({
     'employee.create': function ({ employee }) {
-        //Rajouter condition de role autorisé !!!
+        //Rajouter autorisation de creation de profil avec alanning role
         if (!this.userId) {
             throw new Meteor.Error('403', 'Vous devez être connecté');
         }
@@ -45,8 +45,8 @@ Meteor.methods({
         if (!this.userId) {
         throw new Meteor.Error('403', 'Vous devez être connecté');
         }
-        const employee = EmployeeCollection.findOne(_id);
-        EmployeeCollection.remove(employee);
+        const employee = EmployeesCollection.findOne(_id);
+        EmployeesCollection.remove(employee);
     },
 
     'employee.update': function ({ _id }) {
@@ -54,12 +54,12 @@ Meteor.methods({
         if (!this.userId) {
         throw new Meteor.Error('403', 'Vous devez être connecté');
         }
-        const employee = EmployeeCollection.findOne(_id);
-        EmployeeCollection.update(employee);
+        const employee = EmployeesCollection.findOne(_id);
+        EmployeesCollection.update(employee);
     },
 
     'employee.all': function () {
-        return EmployeeCollection.find({}, {
+        return EmployeesCollection.find({}, {
           sort: { createdAt: 1 },
           limit: 10000,
         }).fetch();

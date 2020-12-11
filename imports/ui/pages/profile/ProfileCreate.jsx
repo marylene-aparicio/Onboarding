@@ -25,7 +25,7 @@ const ProfileCreate = () => {
     manager:'',
     clientName:'',
     arrival: {
-      date:'',
+      date: '',
       validated:''
     },
     departure: {
@@ -42,7 +42,7 @@ const ProfileCreate = () => {
         if (error) {
           toast.error(error.reason);
         } else {
-          toast.success("l'enregistrement des données c'est bien passé");
+          toast.success("l'enregistrement des données s'est bien passé");
           setEmployee('');
         }
       });

@@ -17,7 +17,7 @@ const EmployeesSchema = new SimpleSchema({
     type: String,
   },
   createdAt: {
-    type: Date,
+    type: Date
   },
   express: {
     type: Boolean,
@@ -65,7 +65,7 @@ const EmployeesSchema = new SimpleSchema({
     type: String,
   },
   arrival: {
-    type: DateSchema
+    type: DateSchema,
   },
   departure: {
     type: DateSchema
@@ -73,6 +73,6 @@ const EmployeesSchema = new SimpleSchema({
 });
 
 EmployeesCollection.attachSchema(EmployeesSchema);
-EmployeesCollection.attachSchema(DateSchema);
+// EmployeesCollection.attachSchema(DateSchema);
 
 export default EmployeesCollection;
